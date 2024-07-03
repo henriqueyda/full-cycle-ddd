@@ -25,6 +25,12 @@ export default class Order {
     get items(): OrderItem[] {
         return this._items;
     }
+
+    changeItems(items: OrderItem[]): void {
+        this._items = items;
+        this._total = this.total();
+        this.validate();
+    }
     
     validate(): boolean {
         if (this._id.length === 0) {
